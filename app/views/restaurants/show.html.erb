@@ -1,3 +1,5 @@
+<%= render "navbar", restaurant: @restaurant %>
+
 <h1>This is just one restaurant</h1>
 
 <h3><%= @restaurant.name %></h3>
@@ -9,5 +11,8 @@
 <ul class="list-group">
   <% @restaurant.reviews.each do |review| %>
     <li class="list-group-item"><%= review.content %></li>
+    <li class="list-group-item"><%= review.rating %></li>
   <% end %>
 </ul>
+
+<%= link_to "add a review", new_restaurant_review_path(@restaurant.id) %>
